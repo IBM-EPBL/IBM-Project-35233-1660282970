@@ -1,0 +1,36 @@
+IoT Based Safety Gadget for Child Safety Monitoring and Notification
+Team ID : PNT2022TMID43472	
+
+PREREQUISITES
+
+•	IBM Watson IoT platform
+IBM Watson IoT Platform is a managed, cloud-hosted service designed to make it simple to derive value from your Internet of Things devices. STMicroelectronics is an IBM Partner and provides development platforms allowing users to develop applications with direct connection to the IBM Watson IoT platform.
+
+By using Watson IoT Platform, you can collect connected device data and perform analytics on real-time data. The IBM Watson IoT Platform is a fully managed, Cloud-hosted service that provides device management capabilities as well as data collection and management in a time series format.
+
+The Lite service plan provides a free, lightweight development environment to get you started with the connectivity capabilities of Watson IoT Platform.
+
+
+•	NODE-RED SERVICE
+Node-RED is a programming tool for wiring together hardware devices, APIs and online services in new and interesting ways. It provides a browser-based editor that makes it easy to wire together flows using the wide range of nodes in the palette that can be deployed to its runtime in a single-click.
+Node-RED is an open-source programming tool, for connecting hardware devices, APIs and online services creatively and easily.
+Basic commands one should know to start using Node-Red
+
+•	target - Set or view the target URL and port like http://localhost:1880
+•	login - Log user in to the target of the Node-RED admin API
+•	list - List all of the installed nodes
+•	info - Display more information about the module or node
+•	enable - Enable the specified module or node set
+•	disable - Disable the specified module or node set
+•	search - Search for Node-RED modules to install
+•	install - Install the module from NPM to Node-RED
+•	remove - Remove the NPM module from Node-RED
+•	hash-pw - Create a password hash that can be used with the adminAuth and httpNodeAuth settings
+
+
+
+•	Cloudant document database
+ 
+IBM Cloudant is a fully managed JSON document database that offers independent serverless scaling of throughput capacity and storage.
+A fully managed, distributed database optimized for heavy workloads and fast-growing web and mobile apps, IBM Cloudant is available as an IBM Cloud® service with a 99.99% SLA.
+
