@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <title>Dashboard</title>
+    <script src="./localforage.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <span class="heading">Dashboard</span>
+            <span class="right">
+                <span class="username">Hello User</span>
+                <span>
+                    <img class="profilePic" src="https://avatars.dicebear.com/api/avataaars/asdfasdfds.svg" alt="User Profile" height="30" width="30">
+                </span>
+            </span>
+        </div>
+
+        <div class="actionCenter">
+            <div class="action">
+                <span>Create Child Card</span>
+            </div>
+            <div class="action">
+                <span class="logout">Log out</span>
+            </div>
+        </div>
+
+        <div class="childCardContainer">
+            <div class="childCard">
+                <div class="childCardHeader">
+                    <span>Child Name</span>
+                    <span>Age 12</span>
+                </div>
+                <div class="actions">
+                    <span>View</span>
+                    <span>GeoFence</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        async function main() {
+            let userData = await localforage.getItem('userData')
+            if(userData == null) {
+                window.location.href = "/login"
+            }
+            document.querySelector(".username").innerHTML = `Hello ${userData.firstName}`
+            document.querySelector(".profilePic").src = userData.profilePic
+        }
+        main()
+        document.querySelector(".logout").addEventListener("click", async () => {
+            await localforage.setItem('userData', null)
+            window.location.href = "/login"
+        })
+    </script>
+</body>
+</html>
+Footer
