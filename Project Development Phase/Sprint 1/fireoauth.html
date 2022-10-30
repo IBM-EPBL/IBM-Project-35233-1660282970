@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/fireoauth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css">
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/tharunoptimus-pd/firepwa/main/favicon.ico?token=GHSAT0AAAAAABR46HVJ5M5L3QGFRZRQXOISYUJUWAA" type="image/x-icon">
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+                Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            font-weight: 300;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: 500;
+            font-size: 1.2rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+        }
+
+        h3, h4 {
+            margin: 0;
+            padding: 0.3rem 0;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+        }
+
+        .oneClickSignin {
+            padding: 0.5rem;
+            border: 1px solid #44444444;
+            border-radius: 5px;
+            box-shadow: 0 0 3px 0px #44444444;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .qrcode {
+            opacity: 0.1;
+        }
+
+        .learnAboutFire {
+            padding-top: 1.25em;
+        }
+
+        .qrHolder {
+            display: none;
+            margin-top: 3rem;
+        }
+
+        .qrContainer {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            padding: 8px;
+            margin: 2rem auto;
+            box-shadow: 0 0px 6px 1px rgb(0 0 0 / 16%);
+            border: 1px solid #44444444;
+            border-radius: 6px;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+    <title>Fire OAuth</title>
+    <script>
+        if (window.location.hostname !== "localhost") {
+            if (location.protocol !== "https:") {
+                location.replace(
+                    `https:${location.href.substring(
+                        location.protocol.length
+                    )}`
+                )
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <h3 class="pageTitle">Login with Fire 🔥</h3>
+
+        <div class="qrAuthorize">
+            <h4 class="subTitle">Scan QR from your Fire OAuth App📱</h4>
+
+            <div class="qrContainer">
+                <canvas id="qr-code" class="qrcode"></canvas>
+            </div>
+        </div>
+
+        <div class="oneClickSignin">
+            <h4>Have Fire PWA on this device?</h4>
+            <a target="_blank" id="authorizeOverLink" href="https://firepwa.netlify.app/authorize?sessionId" rel="noopener">Click to Authorize 🔑 </a>
+        </div>
+
+        <div class="learnAboutFire">
+            <a target="_blank" href="https://fireoauth.netlify.app" rel="noopener">Learn More about Fire 🔥</a>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
+    <script>
+
+        const FIRE_API_KEY = "635b790a3bcc6b59c4b772d0"
+        const FIRE_ENDPOINT = "https://fire.adaptable.app/api/apis/generate"
+        const CHANNEL_NAME = "fireOAuthChannel"
+        const broadCastingChannel = new BroadcastChannel(CHANNEL_NAME)
+        const FIRE_SERVER_SOCKET_ENDPOINT = "https://fire.adaptable.app"
+        let socket = io(FIRE_SERVER_SOCKET_ENDPOINT)
+
+        let qr
+
+        let qrcode = document.querySelector(".qrcode")
+        let oneClickSignin = document.querySelector(".oneClickSignin")
+        let pageTitle = document.querySelector(".pageTitle")
+        let subTitle = document.querySelector(".subTitle")
+
+        function setOpacity(opacity) {
+            oneClickSignin.style.opacity = opacity
+            oneClickSignin.style.pointerEvents = opacity === "1" ? "auto" : "none"
+            qrcode.style.opacity = opacity
+        }
+
+        async function getSessionID() {
+            let response
+            try {
+                response = await fetch(`${FIRE_ENDPOINT}/${FIRE_API_KEY}`, {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                    }
+                })
+            } catch (error) {
+                console.log(error)
+                return null
+            }
+
+            let data = await response.json()
+            let { sessionId,  chatRoomId } = data
+            return { sessionId, chatRoomId }
+        }
+
+        function generateQR(value) {
+            (qr = new QRious({
+                element: document.getElementById("qr-code"),
+                size: 200,
+                level: 'M',
+                value: value,
+            }))
+        }
+
+        function changeHREF ({sessionId, chatRoomId}) {
+            let firePwaUrlHostname = "https://firepwa.netlify.app"
+            let originURL = encodeURIComponent(window.location.origin)
+
+            let url = `${firePwaUrlHostname}/authorize.html?sessionId=${sessionId}&chatRoomId=${chatRoomId}&url=${originURL}`
+            let a = document.getElementById("authorizeOverLink")
+            a.href = url
+        }
+
+        async function fire() {
+            NProgress.set(0.4)
+            let { sessionId, chatRoomId } = await getSessionID()
+
+            if(sessionId === undefined || chatRoomId === undefined || sessionId === null || chatRoomId === null) {
+                pageTitle.innerHTML = "Something went wrong 💀☠"
+                subTitle.innerHTML = "Please try again later 😩😢"
+                return
+            }
+
+            setOpacity("1")
+            
+
+            NProgress.done()
+            let data = {
+                sessionId,
+                url: encodeURIComponent(window.location.origin)
+            }
+            data = JSON.stringify(data)
+            generateQR(data)
+            changeHREF({sessionId, chatRoomId})
+            socket.emit("join room", sessionId)
+        }
+
+        fire()
+
+        socket.on("trusted token", (token) => {
+
+            let data = {}
+            data.success = true
+            data.token = token
+
+            broadCastingChannel.postMessage(data)
+
+            window.close()
+        })
+    </script>
+</body>
+</html>
+Footer
