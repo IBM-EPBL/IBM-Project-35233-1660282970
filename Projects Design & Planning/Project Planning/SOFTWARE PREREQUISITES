@@ -1,0 +1,77 @@
+IoT Based Safety Gadget for Child Safety Monitoring and Notification
+Team ID : PNT2022TMID43472  		                                                                    
+SOFTWARE PREREQUISITES
+
+PythonIDE :
+	IDE stands for Integrated Development Environment. It’s a coding tool which allows you to write, test, and debug your code in an easier way, as they typically offer code completion or code insight by highlighting, resource management, debugging tools,… And even though the IDE is a strictly defined concept, it’s starting to be redefined as other tools such as notebooks start gaining more and more features that traditionally belong to IDEs. For example, debugging your code is also possible in Jupyter Notebook. You can probably most clearly see this evolution in the results of the Stack Overflow Developer Survey below, which also includes these new tools, next to the traditional IDEs that you might already know; They all fall under the section “development environment”. Because of all the features that IDEs have to offer, they are extremely useful for development: they make your coding more comfortable and this is no different for data science. However, given the fact that there aren’t only the traditional IDEs to consider, but also new tools, such as notebooks, you might be wondering which development environment to use when you’re just starting out with data science.
+List of Best Python IDE
+1. PyCharm
+In industries most professional developers use PyCharm and it has been considered the best IDE for python developers. It was developed by the Czech company JetBrains and it’s a cross-platform IDE. It gives daily tips to improve your knowledge of how you can use it more efficiently which is a very good feature. It comes in two versions community version and a professional version where the community version is free but the professional version is paid. Below are some other features of this IDE.
+It is considered an intelligent code editor, fast and safe refactoring, and smart code.
+Features for debugging, profiling, remote development, testing the code, auto code completion, quick fixing, error detection, and tools of the database.
+Support for Popular web technologies, web frameworks, scientific libraries, and version control.
+2. Spyder
+Spyder is another good open-source and cross-platform IDE written in Python. It is also called Scientific Python Development IDE and it is the most lightweight IDE for Python. It is mainly used by data scientists who can integrate with Matplotlib, SciPy, NumPy, Pandas, Cython, IPython, SymPy, and other open-source software. It comes with the Anaconda package manager distribution and it has some good advanced features such as edit, debug, and data exploration. Below are some other features of this IDE.
+Auto code completion and syntax highlighting.
+Ability to search and edit the variables from the graphical user interface itself.
+Static code analysis
+It is very efficient in tracing each step of the script execution by a powerful debugger.
+3. Eclipse PyDev
+Eclipse is one of the most popular IDE among developers which is written in Java but you can install the Pydev plugin in eclipse and use it for Python as well. The primary focus of this IDE is the analysis of code, debugging in the graphical pattern, refactoring of python code, etc. Eclipse PyDev is stable and provides good performance for most of the python project life cycle. Below are some other features of this IDE.
+Pydev supports Django integration, Unittest integration, PyLint integration
+Code folding and code completion with auto import
+Good syntax high lighting and remote debugger
+Interactive console
+Allows you to create a Google App Engine (GAE) Python project
+4. IDLE
+IDLE is a cross-platform open-source IDE that comes by default with Python so you don’t need to worry about the installation or setup. IDLE is written in Python and this IDE is suitable for beginner-level developers who want to practice python development. IDLE is lightweight and simple to use so you can build simple projects such as web browser game automation, basic web scraping applications, and office automation. This IDE is not good for larger projects so move to some advanced IDEs after learning the basics from IDLE.
+Python shell with syntax highlighting
+Call stack’s clear visibility
+A multi-window code editor that allows features like smart indentation, autocomplete, etc
+It has an interactive interpreter with colorizing of input, output, and error messages.
+Program animation or stepping.
+5. Wing
+Wing IDE is created by Wingware and it is a faster, stable, and extremely lightweight cross-platform Python IDE
+
+IOT Python SDK:
+	The AWS IoT Device SDK for Python allows developers to write Python script to use their devices to access the AWS IoT platform through MQTT or MQTT over the WebSocket protocol. By connecting their devices to AWS IoT, users can securely work with the message broker, rules, and the device shadow (sometimes referred to as a thing shadow) provided by AWS IoT and with other AWS services like AWS Lambda, Amazon Kinesis, Amazon S3, and more.
+Overview:
+This document provides instructions for installing and configuring the AWS IoT Device SDK for Python. It includes examples demonstrating the use of the SDK APIs.
+MQTT Connections
+The SDK is built on top of a modified Paho MQTT Python client library. Developers can choose from two types of connections to connect to AWS IoT:
+MQTT (over TLS 1.2) with X.509 certificate-based mutual authentication.
+MQTT over the WebSocket protocol with AWS Signature Version 4 authentication.
+MQTT (over TLS 1.2) with X.509 certificate-based mutual authentication with TLS ALPN extension.
+For MQTT over TLS (port 8883 and port 443), a valid certificate and a private key are required for authentication. For MQTT over the WebSocket protocol (port 443), a valid AWS Identity and Access Management (IAM) access key ID and secret access key pair are required for authentication.
+Device Shadow:
+A device shadow, or thing shadow, is a JSON document that is used to store and retrieve current state information for a thing (device, app, and so on). A shadow can be created and maintained for each thing or device so that its state can be get and set regardless of whether the thing or device is connected to the Internet. The SDK implements the protocol for applications to retrieve, update, and delete shadow documents. The SDK allows operations on shadow documents of single or multiple shadow instances in one MQTT connection. The SDK also allows the use of the same connection for shadow operations and non-shadow, simple MQTT operations.
+
+Node.js to use Node-Red services:
+	Node.js is a cross platform, open source JavaScript runtime environment (JRE) which allows building JavaScript programs for the server-side. Node.js is more than a decade old now and runs on V8 engine.
+While many consider Node.js to be only a backend framework, this technology also can be wont to build front-end. 
+Most software engineers consider Node the most exciting single piece of software within the current JavaScript universe. 
+Key benefits of using Node.js:
+1.	Node.js is superb for calling other services. For the bulk of apps it’s critical to form communication with the database and platform API seamless.
+2.	Node.js increases performance and handles tons of requests. For the client side it’s very useful, practical and fast because it demands users to form fewer clicks and have everything loaded directly .
+3.	Node.js overcomes large processing challenges.
+4.	Node.js enables development teams to use JavaScript both for the server and therefore the browser.
+5.	Smooth, fast UI and customization is feasible with Node.js. And Netflix here may be a true winner with one among the foremost successful UI ever.
+6.	Node.js features a large and active community of engineers who constantly contribute and improve the technology.
+7.	Extensive NPM offers tons of ready-made solutions engineers can use. 
+8.	Node.js is straightforward.
+9.	It’sgreat for startups as they will enjoy faster development and faster entering the market with their products.
+use Node-Red services:
+	Node-RED is a programming tool for wiring together hardware devices, APIs and online services in new and interesting ways.
+It provides a browser-based editor that makes it easy to wire together flows using the wide range of nodes in the palette that can be deployed to its runtime in a single-click.
+
+Fast2sms:
+	Mobile plays a vital role in communication and we cannot deny the importance of SMS. Short Messaging Service or SMS as it is popularly known as, has become an integral part of our lives. Imagine having a phone without SMS feature. How we will communicate with others, don’t you think our lives would become quite monotonous and boring. We are totally dependent on messaging and for short and urgent talks we prefer messaging rather than calling.
+SMS is also in great use for mobile marketing and according to recent surveys and reports, the global SMS messaging business is estimated to be around $100 billion and it is a proven fact that almost 50% of revenue is generated by mobile messaging. At times when we have to communicate urgently we all would prefer SMS because it does not require an internet connection.
+Fast2SMS.com is a popular bulk SMS service provider in India. It was started in 21st July 2011. Due to its simplicity and ease of use it has become one of the mostly used SMS portals and has 2 million users.
+
+Features of Fast2SMS:
+
+•	Bulk SMS – Bulk SMS refers to business sending SMS to one or more recipients and can scale up to millions of persons at the same time. It refers to sending large number of messages to a predefined set of customers. 
+•	Quick SMS feature – Fast2SMS provides a very unique and useful feature which is not available in any other bulk SMS service provider. You can send SMS to DND and Non DND numbers even if you are not registered in the DLT portal. 
+
+Footer
