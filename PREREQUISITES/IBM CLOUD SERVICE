@@ -1,0 +1,71 @@
+IoT Based Safety Gadget for Child Safety Monitoring and Notification
+
+Team ID :PNT2022TMID43472
+
+PREREQUISITES:
+
+IBM Cloud Services:
+
+1.IBM Watson IoT Platform
+2.Node-RED Service
+3.Cloudant DB
+
+i) IBM Watson IoT platform:
+
+IBM Watson IoT Platform is a managed, cloud-hosted service designed to make it simple to derive value from your Internet of Things devices. 
+STMicroelectronics is an IBM Partner and provides development platforms allowing users to develop applications with direct connection to the IBM Watson IoT platform.
+By using Watson IoT Platform, you can collect connected device data and perform analytics on real-time data. 
+The IBM Watson IoT Platform is a fully managed, Cloud-hosted service that provides device management capabilities as well as data collection and management in a time series format.
+The Lite service plan provides a free, lightweight development environment to get you started with the connectivity capabilities of Watson IoT Platform.
+
+ii) NODE-RED SERVICE:
+
+Node-RED is a programming tool for wiring together hardware devices, APIs and online services in new and interesting ways. 
+It provides a browser-based editor that makes it easy to wire together flows using the wide range of nodes in the palette that can be deployed to its runtime in a single-click.
+Node-RED is an open-source programming tool, for connecting hardware devices, APIs and online services creatively and easily.
+Node.js is a cross platform, open source JavaScript runtime environment (JRE) which allows building JavaScript programs for the server-side. 
+Node.js is more than a decade old now and runs on V8 engine.
+While many consider Node.js to be only a backend framework, this technology also can be wont to build front-end. 
+Most software engineers consider Node the most exciting single piece of software within the current JavaScript universe. 
+
+Basic commands one should know to start using Node-Red
+
+•	target - Set or view the target URL and port like http://localhost:1880
+•	login - Log user in to the target of the Node-RED admin API
+•	list - List all of the installed nodes
+•	info - Display more information about the module or node
+•	enable - Enable the specified module or node set
+•	disable - Disable the specified module or node set
+•	search - Search for Node-RED modules to install
+•	install - Install the module from NPM to Node-RED
+•	remove - Remove the NPM module from Node-RED
+•	hash-pw - Create a password hash that can be used with the adminAuth and httpNodeAuth settings
+
+Key benefits of using Node.js:
+1.	Node.js is superb for calling other services. For the bulk of apps it’s critical to form communication with the database and platform API seamless.
+2.	Node.js increases performance and handles tons of requests. For the client side it’s very useful, practical and fast because it demands users to form fewer clicks and have everything loaded directly .
+3.	Node.js overcomes large processing challenges.
+4.	Node.js enables development teams to use JavaScript both for the server and therefore the browser.
+5.	Smooth, fast UI and customization is feasible with Node.js. And Netflix here may be a true winner with one among the foremost successful UI ever.
+6.	Node.js features a large and active community of engineers who constantly contribute and improve the technology.
+7.	Extensive NPM offers tons of ready-made solutions engineers can use. 
+8.	Node.js is straightforward.
+9.	It’sgreat for startups as they will enjoy faster development and faster entering the market with their products.
+
+Use Node-Red services:
+	Node-RED is a programming tool for wiring together hardware devices, APIs and online services in new and interesting ways.
+It provides a browser-based editor that makes it easy to wire together flows using the wide range of nodes in the palette that can be deployed to its runtime in a single-click.
+
+
+iii) Cloudant document database:
+Cloudant is an IBM software product, which is primarily delivered as a cloud-based service. Cloudant is a non-relational, distributed database service of the same name. 
+Cloudant is based on the Apache-backed CouchDB project and the open source BigCouch project.
+IBM Cloudant is a fully managed JSON document database that offers independent serverless scaling of throughput capacity and storage.
+A fully managed, distributed database optimized for heavy workloads and fast-growing web and mobile apps, IBM Cloudant is available as an IBM Cloud® service with a 99.99% SLA.
+Cloudant is accessed through an HTTP API. You can see the different parts that you use to connect to IBM Cloudant in the following list:
+
+1.Endpoints
+2.Service credentials
+3.Authentication
+4.Accessing the IBM Cloudant Dashboard
+5.Programmatically accessing IBM Cloudant by using curl or client libraries
