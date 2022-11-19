@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/login.css">
+    <title>Sign Up</title>
+</head>
+<body style="
+    background-image: url('backg.jpg');
+    background-repeat: no-repeat;
+    object-fit: fill;">
+    <div class="wrapper">
+        <div class="loginContainer">
+            <span class="heading" style="font-size:3rem;">Sign Up</span>
+            <div class="traditionalLoginContainer">
+                <form class="signupForm" action="login.html" method="post">
+                    <div>
+                        <span class="label" style="font-size: 1.5rem;">First Name : </span>
+                        <input type="text" name="firstName" id="firstName">
+                    </div>
+                    <div>
+                        <span class="label" style="font-size: 1.5rem;">Last Name  : </span>
+                        <input type="text" name="lastName"  id="lastName">
+                    </div>
+                    <div>
+                        <span class="label" style="font-size: 1.5rem;">Username : </span>
+                        <input type="text" name="username" id="username">
+                    </div>
+                    <div>
+                        <span class="label" style="font-size: 1.5rem;">Password  : </span>
+                        <input type="password" name="password"  id="password">
+                    </div>
+                    <div>
+                        <span class="label" style="font-size: 1.5rem;">Re-enter password : </span>
+                        <input type="password" name="reEnterPassword" id="reEnterPassword">
+                    </div>
+                    <input class="loginButton" type="submit" value="Sign Up">
+                </form>
+            </div>
+            <span class="heading" style="font-size:3rem;">
+                <a class="hyperLink" href="login.html">Already have an Account? Login</a>
+            </span>
+        </div>
+    </div>
+</body>
+</html>
