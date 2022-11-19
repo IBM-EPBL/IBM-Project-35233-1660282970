@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css">
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/tharunoptimus-pd/firepwa/main/favicon.ico?token=GHSAT0AAAAAABR46HVJ5M5L3QGFRZRQXOISYUJUWAA" type="image/x-icon">
+    <link rel = "stylesheet" href =  
+"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />  
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+                Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            font-weight: 300;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: 500;
+            font-size: 1.2rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+        }
+
+        h3, h4 {
+            margin: 0;
+            padding: 0.3rem 0;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+        }
+
+        .oneClickSignin {
+            padding: 0.5rem;
+            border: 1px solid #44444444;
+            border-radius: 5px;
+            box-shadow: 0 0 3px 0px #44444444;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .qrcode {
+            opacity: 0.1;
+        }
+
+        .learnAboutFire {
+            padding-top: 1.25em;
+        }
+
+        .qrHolder {
+            display: none;
+            margin-top: 3rem;
+        }
+
+        .qrContainer {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            padding: 8px;
+            margin: 2rem auto;
+            box-shadow: 0 0px 6px 1px rgb(0 0 0 / 16%);
+            border: 1px solid #44444444;
+            border-radius: 6px;
+            width: 200px;
+            height: 200px;
+        }
+        .qr-code {  
+            max-width: 200px;  
+            margin: 10px;  
+        }  
+    </style>
+    <title>Fire OAuth</title>
+</head>
+<body>
+    <div class="wrapper">
+        <h3 class="pageTitle">Login with Fire 🔥</h3>
+
+        <div class="qrAuthorize">
+            <h4 class="subTitle">Scan QR from your Fire OAuth App📱</h4>
+            <div class = "container-fluid">  
+                <div class = "text-center">  
+                <img src =  
+            "https://chart.googleapis.com/chart?cht=qr&chl=Hello+World&chs=160x160&chld=L|0"  
+                    class = "qr-code img-thumbnail img-responsive" />  
+                </div>  
+            </div>
+        </div>
+
+        <div class="oneClickSignin">
+            <h4>Have Fire PWA on this device?</h4>
+            <a target="_blank" id="authorizeOverLink" href="https://firepwa.netlify.app/authorize?sessionId" rel="noopener">Click to Authorize 🔑 </a>
+        </div>
+
+        <div class="learnAboutFire">
+            <a target="_blank" href="https://fireoauth.netlify.app" rel="noopener">Learn More about Fire 🔥</a>
+        </div>
+    </div>
+  
+    <script src =  
+        "https://code.jquery.com/jquery-3.5.1.js">  
+    </script>  
+    <script>  
+        function htmlEncode(value) {  
+        return $('<div/>').text(value)  
+            .html();  
+        }  
+        $(function () {  
+        $('#generate').click(function () {        
+            let finalURL =  
+    'https://chart.googleapis.com/chart?cht=qr&chl=' +  
+            htmlEncode($('#content').val()) +  
+            '&chs=160x160&chld=L|0'   
+            $('.qr-code').attr('src', finalURL);  
+        });  
+        });  
+    </script>  
+</body>
+</html>
